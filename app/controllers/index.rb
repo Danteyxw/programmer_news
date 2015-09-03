@@ -7,6 +7,12 @@ get '/login' do
   erb :login
 end
 
+get '/post/:id' do
+  @post = Post.find(params[:id])
+  @comments = @post.comments
+  erb :post
+end
+
 # add validations later
 post '/login' do
   username = params[:username]

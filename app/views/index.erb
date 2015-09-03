@@ -3,10 +3,9 @@
     <div class="post">
       <a href="<%= post.link %>">
         <h2><%= (i + 1).to_s + ". " + post.title %></h2>
-        <span class="url"><%= post.link %></span>
       </a>
       <span class="user">Posted by post.user</span>
-      <span class="comments"><%= post.comments.size %></span>
+      <span class="comments"><a href="/post/<%= post.id %>"><%= post.comments.size %> comments</a></span>
     </div>
   <% end %>
 </div>
