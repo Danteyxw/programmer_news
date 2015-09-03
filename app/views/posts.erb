@@ -1,0 +1,18 @@
+<div class="container">
+
+  <h2><a href="/profile/<%= @user.id %>"><%= @user.username %></a></h2>
+  <% @posts.each do |post| %>
+    <div class="post">
+      <a href="<%= post.link %>">
+        <h3><%= post.title %></h3>
+      </a>
+      <span class="comments"><a href="/post/<%= post.id %>"><%= post.comments.size %> comments</a></span>
+      <% if session[:user] == @user.username %>
+        <form action="/post/<%= post.id %>/delete" method="post">
+          <input type="submit" value="delete">
+        </form>
+      <% end %>
+    </div>
+  <% end %>
+
+</div>

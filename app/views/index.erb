@@ -1,10 +1,11 @@
 <div class="container">
   <% @posts.each_with_index do |post, i| %>
+    <% user = post.user %>
     <div class="post">
       <a href="<%= post.link %>">
         <h2><%= (i + 1).to_s + ". " + post.title %></h2>
       </a>
-      <span class="user">Posted by <%= post.user.username %></span>
+      Posted by <span class="user"><a href="/profile/<%= user.id %>"><%= user.username %></a></span>
       <span class="comments"><a href="/post/<%= post.id %>"><%= post.comments.size %> comments</a></span>
     </div>
   <% end %>

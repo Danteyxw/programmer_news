@@ -7,12 +7,12 @@
     <input type="submit" value="submit">
   </form>
 
-  <% @comments.each do |comment| %>
   <div class="comments">
-    <div class="comment">
-      <span class="commenter"><%= comment.user.username %></span>
-      <p class="content"><%= comment.content %></p>
-    </div>
+    <% @comments.each do |comment| %>
+      <div class="comment">
+        <span class="commenter"><%= comment.user.username %></span>
+        <p class="content"><%= comment.content %></p>
+      </div>
+    <% end %>
   </div>
-  <% end %>
 </div>

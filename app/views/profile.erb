@@ -1,0 +1,9 @@
+<div class="container">
+  <h2><%= @user.username %></h2>
+
+  <h3>About</h3>
+  <p><%= @user.about %></p>
+
+  <a href="/profile/posts/<%= @user.id %>">Posts</a>
+  <a href="/profile/comments/<%= @user.id %>">Comments</a>
+</div>
