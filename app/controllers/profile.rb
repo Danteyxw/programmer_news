@@ -26,6 +26,7 @@ end
 post '/post/:id/delete' do
   post = Post.find(params[:id])
   if (session[:user] == post.user.username)
+    post.comments.each {|comment| comment.delete}
     post.delete
     redirect "/profile/#{post.user.id}/posts"
   else

@@ -19,13 +19,18 @@
 </head>
 <body>
   <header>
-    <h1><a href="/">Programmer News</a></h1>
-    <span id="user"><%= session[:user] %></span>
+    <div id="banner">
+       <h1><a href="/">Programmer News</a></h1>
+    </div>
     <nav>
-      <a href="/submit">submit</a>
-      <a href="/profile">profile</a>
-      <a href="/login">login</a>
-      <a href="/signout">signout</a>
+      <ul>
+        <% unless (username = session[:user]).nil? %>
+          <li><a id="profile" href="/profile/<%= User.find_by(username: username).id %>"><%= username %></a></li>
+        <% end %>
+        <li><a id="submit" href="/submit">submit</a></li>
+        <li><a id="login" href="/login">login</a></li>
+        <li><a id="logout" href="/logout">logout</a></li>
+      </ul>
     </nav>
   </header>
 

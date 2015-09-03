@@ -38,7 +38,7 @@ post '/signup' do
   redirect "/login?error=#{@error}"
 end
 
-get '/signout' do
+get '/logout' do
   session[:user] = nil
 
   redirect '/'
