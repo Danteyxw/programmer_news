@@ -4,7 +4,7 @@
       <a href="<%= post.link %>">
         <h2><%= (i + 1).to_s + ". " + post.title %></h2>
       </a>
-      <span class="user">Posted by post.user</span>
+      <span class="user">Posted by <%= post.user.username %></span>
       <span class="comments"><a href="/post/<%= post.id %>"><%= post.comments.size %> comments</a></span>
     </div>
   <% end %>
