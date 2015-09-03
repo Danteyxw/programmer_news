@@ -1,10 +1,18 @@
 <div class="container">
   <h2><%= @post.title %></h2>
 
+  <form id="comment" action="/post/<%= @post.id %>/comment" method="post">
+    <h3>Comment</h3>
+    <textarea name="content"></textarea>
+    <input type="submit" value="submit">
+  </form>
+
   <% @comments.each do |comment| %>
+  <div class="comments">
     <div class="comment">
-      <span class="commenter">comment.user</span>
-      <p class="content">comment.content</p>
+      <span class="commenter"><%= comment.user.username %></span>
+      <p class="content"><%= comment.content %></p>
     </div>
+  </div>
   <% end %>
 </div>
