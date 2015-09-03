@@ -19,12 +19,18 @@
 </head>
 <body>
   <header>
-    <h1>Programmer News</h1>
+    <h1><a href="/">Programmer News</a></h1>
+    <span id="user"><%= session[:user] %></span>
     <nav>
       <a href="">profile</a>
-      <a href="">login</a>
+      <a href="/login">login</a>
+      <a href="/signout">signout</a>
     </nav>
   </header>
+
+  <div class="messages">
+    <%= params[:error] %>
+  </div>
 
   <%= yield %>
 </body>
